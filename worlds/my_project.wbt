@@ -1,0 +1,796 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/balls/protos/FifaSoccerBall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/cabinet/protos/Cabinet.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/fruits/protos/Apple.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/plants/protos/PottedTree.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/chairs/protos/WoodenChair.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/traffic/protos/TrafficCone.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
+
+WorldInfo {
+  info [
+    "AST Assaignment"
+  ]
+  title "AMR"
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.4643195499831839 0.011187244227651112 0.88559708732019 3.0989303615404613
+  position 19.33551402731808 0.9862878590867354 22.675277377314337
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 20 20
+  floorAppearance Parquetry {
+  }
+  wallThickness 0.15
+  wallHeight 0.25
+}
+Wall {
+  translation -4.09152 -5.23 0
+  rotation 0 0 1 0.523599
+  name "wall(5)"
+  size 0.2 5 2.4
+}
+Wall {
+  translation -2.54652 -7.90597 0
+  rotation 0 0 1 0.523599
+  name "wall(6)"
+  size 0.2 5 2.4
+}
+Wall {
+  translation 0 7.62 0
+  size 0.2 5 2.4
+}
+Wall {
+  translation 0 -2.98 0
+  name "wall(1)"
+  size 0.2 5 2.4
+}
+Wall {
+  translation -2.62974 5.94471 0
+  rotation 0 0 1 1.309
+  name "wall(2)"
+  size 0.2 5 2.4
+}
+Wall {
+  translation -5.2 4.08 0
+  name "wall(3)"
+  size 0.2 5 2.4
+}
+Wall {
+  translation -5.2 -0.85 0
+  name "wall(4)"
+  size 0.2 5 2.4
+}
+PottedTree {
+  translation 1.61 -2 0
+}
+TrafficCone {
+}
+TrafficCone {
+  translation 3.54 0 0
+  name "traffic cone(1)"
+}
+TrafficCone {
+  translation 3.21 0 0
+  name "traffic cone(2)"
+}
+TrafficCone {
+  translation 2.61 0 0
+  name "traffic cone(3)"
+}
+TrafficCone {
+  translation 2.03 0 0
+  name "traffic cone(4)"
+}
+TrafficCone {
+  translation 1.42 0 0
+  name "traffic cone(5)"
+}
+TrafficCone {
+  translation 0.82 0 0
+  name "traffic cone(6)"
+}
+TrafficCone {
+  translation 0.36 0 0
+  name "traffic cone(7)"
+}
+Robot {
+  translation 4.15266 -3.23304 0.00823979
+  rotation 0.004125248805908017 -0.0012494596383321815 0.9999907105433038 -2.1926853071795867
+  children [
+    Solid {
+      translation 0.233 0.1165 0.05
+      children [
+        DEF wheeled_brick_housing_visual CadShape {
+          url [
+            "/home/pratik/ros_ws/colcon_ws_AMR/src/robile_description/meshes/robile_brick_housing/wheeled_brick_housing.dae"
+          ]
+        }
+        DEF lid_visual CadShape {
+          url [
+            "/home/pratik/ros_ws/colcon_ws_AMR/src/robile_description/meshes/robile_brick_housing/lid.dae"
+          ]
+        }
+        DEF lid_cover_red_visual CadShape {
+          url [
+            "/home/pratik/ros_ws/colcon_ws_AMR/src/robile_description/meshes/robile_brick_housing/lid_cover_red.dae"
+          ]
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.45894742991075216
+            axis 0 0 1
+          }
+          device [
+            RotationalMotor {
+              name "robile_1_drive_pivot_joint"
+              maxTorque 10000
+            }
+            PositionSensor {
+              name "robile_1_drive_pivot_joint_sensor"
+            }
+          ]
+          endPoint Solid {
+            rotation 0 0 -1 0.4589474299107522
+            children [
+              DEF kelo_drive_base_visual CadShape {
+                url [
+                  "/home/pratik/ros_ws/colcon_ws_AMR/src/robile_description/meshes/kelo_drive/kelo_drive_base.dae"
+                ]
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position 1988.768897070469
+                  axis 0 1 0
+                  anchor -0.01 0.039326 0.001514
+                }
+                device [
+                  RotationalMotor {
+                    name "robile_1_drive_left_hub_wheel_joint"
+                    maxTorque 0
+                  }
+                  PositionSensor {
+                    name "robile_1_drive_left_hub_wheel_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.01 0.039326 0.001514
+                  rotation 0 1 0 3.2823400017196116
+                  children [
+                    DEF kelo_drive_wheel_visual CadShape {
+                      url [
+                        "/home/pratik/ros_ws/colcon_ws_AMR/src/robile_description/meshes/kelo_drive/kelo_drive_wheel.dae"
+                      ]
+                    }
+                  ]
+                  name "robile_1_drive_left_hub_wheel_link"
+                  boundingObject Pose {
+                    rotation 1 0 0 1.57
+                    children [
+                      Cylinder {
+                        height 0.035
+                        radius 0.0515
+                      }
+                    ]
+                  }
+                  physics Physics {
+                    density -1
+                    mass 10
+                    centerOfMass [
+                      0 0 0
+                    ]
+                    inertiaMatrix [
+                      0.09048167 0.09048167 0.09048167
+                      0 0 0
+                    ]
+                  }
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position 1962.3976756881007
+                  axis 0 1 0
+                  anchor -0.01 -0.039326 0.001514
+                }
+                device [
+                  RotationalMotor {
+                    name "robile_1_drive_right_hub_wheel_joint"
+                    maxTorque 0
+                  }
+                  PositionSensor {
+                    name "robile_1_drive_right_hub_wheel_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.01 -0.039326 0.001514
+                  rotation 0 1 0 2.0438598480696815
+                  children [
+                    USE kelo_drive_wheel_visual
+                  ]
+                  name "robile_1_drive_right_hub_wheel_link"
+                  boundingObject Pose {
+                    rotation 1 0 0 1.57
+                    children [
+                      Cylinder {
+                        height 0.035
+                        radius 0.0515
+                      }
+                    ]
+                  }
+                  physics Physics {
+                    density -1
+                    mass 10
+                    centerOfMass [
+                      0 0 0
+                    ]
+                    inertiaMatrix [
+                      0.09048167 0.09048167 0.09048167
+                      0 0 0
+                    ]
+                  }
+                }
+              }
+            ]
+            name "robile_1_drive_pivot_link"
+            physics Physics {
+              density -1
+              mass 10
+              centerOfMass [
+                0 0 0
+              ]
+              inertiaMatrix [
+                0.09048167 0.09048167 0.09048167
+                0 0 0
+              ]
+            }
+          }
+        }
+      ]
+      name "robile_1_link"
+      physics Physics {
+        density -1
+        mass 4.554
+        centerOfMass [
+          5e-05 9e-05 0.12048
+        ]
+        inertiaMatrix [
+          0.0512 0.051012 0.062741
+          6.2e-06 2.24e-05 2.7e-05
+        ]
+      }
+    }
+    Solid {
+      translation 0.233 -0.1165 0.05
+      children [
+        USE wheeled_brick_housing_visual
+        USE lid_visual
+        USE lid_cover_red_visual
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.4589482412914205
+            axis 0 0 1
+          }
+          device [
+            RotationalMotor {
+              name "robile_2_drive_pivot_joint"
+              maxTorque 10000
+            }
+            PositionSensor {
+              name "robile_2_drive_pivot_joint_sensor"
+            }
+          ]
+          endPoint Solid {
+            rotation 0 0 -1 0.45894824129142037
+            children [
+              USE kelo_drive_base_visual
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position 2016.1668769883852
+                  axis 0 1 0
+                  anchor -0.01 0.039326 0.001514
+                }
+                device [
+                  RotationalMotor {
+                    name "robile_2_drive_left_hub_wheel_joint"
+                    maxTorque 0
+                  }
+                  PositionSensor {
+                    name "robile_2_drive_left_hub_wheel_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.01 0.039326 0.001514
+                  rotation 0 1 0 5.547578690917511
+                  children [
+                    USE kelo_drive_wheel_visual
+                  ]
+                  name "robile_2_drive_left_hub_wheel_link"
+                  boundingObject Pose {
+                    rotation 1 0 0 1.57
+                    children [
+                      Cylinder {
+                        height 0.035
+                        radius 0.0515
+                      }
+                    ]
+                  }
+                  physics Physics {
+                    density -1
+                    mass 10
+                    centerOfMass [
+                      0 0 0
+                    ]
+                    inertiaMatrix [
+                      0.09048167 0.09048167 0.09048167
+                      0 0 0
+                    ]
+                  }
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position 1981.1960935063137
+                  axis 0 1 0
+                  anchor -0.01 -0.039326 0.001514
+                }
+                device [
+                  RotationalMotor {
+                    name "robile_2_drive_right_hub_wheel_joint"
+                    maxTorque 0
+                  }
+                  PositionSensor {
+                    name "robile_2_drive_right_hub_wheel_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.01 -0.039326 0.001514
+                  rotation 0 -1 0 4.2904635624356535
+                  children [
+                    USE kelo_drive_wheel_visual
+                  ]
+                  name "robile_2_drive_right_hub_wheel_link"
+                  boundingObject Pose {
+                    rotation 1 0 0 1.57
+                    children [
+                      Cylinder {
+                        height 0.035
+                        radius 0.0515
+                      }
+                    ]
+                  }
+                  physics Physics {
+                    density -1
+                    mass 10
+                    centerOfMass [
+                      0 0 0
+                    ]
+                    inertiaMatrix [
+                      0.09048167 0.09048167 0.09048167
+                      0 0 0
+                    ]
+                  }
+                }
+              }
+            ]
+            name "robile_2_drive_pivot_link"
+            physics Physics {
+              density -1
+              mass 10
+              centerOfMass [
+                0 0 0
+              ]
+              inertiaMatrix [
+                0.09048167 0.09048167 0.09048167
+                0 0 0
+              ]
+            }
+          }
+        }
+      ]
+      name "robile_2_link"
+      physics Physics {
+        density -1
+        mass 4.554
+        centerOfMass [
+          5e-05 9e-05 0.12048
+        ]
+        inertiaMatrix [
+          0.0512 0.051012 0.062741
+          6.2e-06 2.24e-05 2.7e-05
+        ]
+      }
+    }
+    Solid {
+      translation 0 0.1165 0.05
+      children [
+        DEF general_brick_housing_visual CadShape {
+          url [
+            "/home/pratik/ros_ws/colcon_ws_AMR/src/robile_description/meshes/robile_brick_housing/general_brick_housing.dae"
+          ]
+        }
+        USE lid_visual
+        DEF lid_cover_yellow_visual CadShape {
+          url [
+            "/home/pratik/ros_ws/colcon_ws_AMR/src/robile_description/meshes/robile_brick_housing/lid_cover_yellow.dae"
+          ]
+        }
+      ]
+      name "robile_3_link"
+      physics Physics {
+        density -1
+        mass 4.554
+        centerOfMass [
+          5e-05 9e-05 0.12048
+        ]
+        inertiaMatrix [
+          0.0512 0.051012 0.062741
+          6.2e-06 2.24e-05 2.7e-05
+        ]
+      }
+    }
+    Solid {
+      translation 0 -0.1165 0.05
+      children [
+        USE general_brick_housing_visual
+        USE lid_visual
+        DEF lid_cover_green_visual CadShape {
+          url [
+            "/home/pratik/ros_ws/colcon_ws_AMR/src/robile_description/meshes/robile_brick_housing/lid_cover_green.dae"
+          ]
+        }
+      ]
+      name "robile_4_link"
+      physics Physics {
+        density -1
+        mass 4.554
+        centerOfMass [
+          5e-05 9e-05 0.12048
+        ]
+        inertiaMatrix [
+          0.0512 0.051012 0.062741
+          6.2e-06 2.24e-05 2.7e-05
+        ]
+      }
+    }
+    Solid {
+      translation -0.233 0.1165 0.05
+      children [
+        USE wheeled_brick_housing_visual
+        USE lid_visual
+        USE lid_cover_red_visual
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position 0.0014566154741180843
+            axis 0 0 1
+          }
+          device [
+            RotationalMotor {
+              name "robile_5_drive_pivot_joint"
+              maxTorque 100
+            }
+            PositionSensor {
+              name "robile_5_drive_pivot_joint_sensor"
+            }
+          ]
+          endPoint Solid {
+            rotation 0 0 1 0.001456615474149378
+            children [
+              USE kelo_drive_base_visual
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position 2119.0398897939003
+                  axis 0 1 0
+                  anchor -0.01 0.039326 0.001514
+                }
+                device [
+                  RotationalMotor {
+                    name "robile_5_drive_left_hub_wheel_joint"
+                    maxTorque 10000
+                  }
+                  PositionSensor {
+                    name "robile_5_drive_left_hub_wheel_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.01 0.039326 0.001514
+                  rotation 0 -1 0 4.6767440327999
+                  children [
+                    USE kelo_drive_wheel_visual
+                  ]
+                  name "robile_5_drive_left_hub_wheel_link"
+                  boundingObject Pose {
+                    rotation 1 0 0 1.57
+                    children [
+                      Cylinder {
+                        height 0.035
+                        radius 0.0515
+                      }
+                    ]
+                  }
+                  physics Physics {
+                    density -1
+                    mass 10
+                    centerOfMass [
+                      0 0 0
+                    ]
+                    inertiaMatrix [
+                      0.09048167 0.09048167 0.09048167
+                      0 0 0
+                    ]
+                  }
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position 2079.392045701762
+                  axis 0 1 0
+                  anchor -0.01 -0.039326 0.001514
+                }
+                device [
+                  RotationalMotor {
+                    name "robile_5_drive_right_hub_wheel_joint"
+                    maxTorque 10000
+                  }
+                  PositionSensor {
+                    name "robile_5_drive_right_hub_wheel_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.01 -0.039326 0.001514
+                  rotation 0 1 0 5.940894332498535
+                  children [
+                    USE kelo_drive_wheel_visual
+                  ]
+                  name "robile_5_drive_right_hub_wheel_link"
+                  boundingObject Pose {
+                    rotation 1 0 0 1.57
+                    children [
+                      Cylinder {
+                        height 0.035
+                        radius 0.0515
+                      }
+                    ]
+                  }
+                  physics Physics {
+                    density -1
+                    mass 10
+                    centerOfMass [
+                      0 0 0
+                    ]
+                    inertiaMatrix [
+                      0.09048167 0.09048167 0.09048167
+                      0 0 0
+                    ]
+                  }
+                }
+              }
+            ]
+            name "robile_5_drive_pivot_link"
+            physics Physics {
+              density -1
+              mass 10
+              centerOfMass [
+                0 0 0
+              ]
+              inertiaMatrix [
+                0.09048167 0.09048167 0.09048167
+                0 0 0
+              ]
+            }
+          }
+        }
+      ]
+      name "robile_5_link"
+      physics Physics {
+        density -1
+        mass 4.554
+        centerOfMass [
+          5e-05 9e-05 0.12048
+        ]
+        inertiaMatrix [
+          0.0512 0.051012 0.062741
+          6.2e-06 2.24e-05 2.7e-05
+        ]
+      }
+    }
+    Solid {
+      translation -0.233 -0.1165 0.05
+      children [
+        USE wheeled_brick_housing_visual
+        USE lid_visual
+        USE lid_cover_red_visual
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            position -0.0008899207649473526
+            axis 0 0 1
+          }
+          device [
+            RotationalMotor {
+              name "robile_6_drive_pivot_joint"
+              maxTorque 100
+            }
+            PositionSensor {
+              name "robile_6_drive_pivot_joint_sensor"
+            }
+          ]
+          endPoint Solid {
+            rotation 0 0 -1 0.0008899207647215043
+            children [
+              USE kelo_drive_base_visual
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position 2119.033994713673
+                  axis 0 1 0
+                  anchor -0.01 0.039326 0.001514
+                }
+                device [
+                  RotationalMotor {
+                    name "robile_6_drive_left_hub_wheel_joint"
+                    maxTorque 10000
+                  }
+                  PositionSensor {
+                    name "robile_6_drive_left_hub_wheel_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.01 0.039326 0.001514
+                  rotation 0 -1 0 4.682639113027119
+                  children [
+                    USE kelo_drive_wheel_visual
+                  ]
+                  name "robile_6_drive_left_hub_wheel_link"
+                  boundingObject Pose {
+                    rotation 1 0 0 1.57
+                    children [
+                      Cylinder {
+                        height 0.035
+                        radius 0.0515
+                      }
+                    ]
+                  }
+                  physics Physics {
+                    density -1
+                    mass 10
+                    centerOfMass [
+                      0 0 0
+                    ]
+                    inertiaMatrix [
+                      0.09048167 0.09048167 0.09048167
+                      0 0 0
+                    ]
+                  }
+                }
+              }
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position 2079.392128720836
+                  axis 0 1 0
+                  anchor -0.01 -0.039326 0.001514
+                }
+                device [
+                  RotationalMotor {
+                    name "robile_6_drive_right_hub_wheel_joint"
+                    maxTorque 10000
+                  }
+                  PositionSensor {
+                    name "robile_6_drive_right_hub_wheel_joint_sensor"
+                  }
+                ]
+                endPoint Solid {
+                  translation -0.01 -0.039326 0.001514
+                  rotation 0 1 0 5.940977351572362
+                  children [
+                    USE kelo_drive_wheel_visual
+                  ]
+                  name "robile_6_drive_right_hub_wheel_link"
+                  boundingObject Pose {
+                    rotation 1 0 0 1.57
+                    children [
+                      Cylinder {
+                        height 0.035
+                        radius 0.0515
+                      }
+                    ]
+                  }
+                  physics Physics {
+                    density -1
+                    mass 10
+                    centerOfMass [
+                      0 0 0
+                    ]
+                    inertiaMatrix [
+                      0.09048167 0.09048167 0.09048167
+                      0 0 0
+                    ]
+                  }
+                }
+              }
+            ]
+            name "robile_6_drive_pivot_link"
+            physics Physics {
+              density -1
+              mass 10
+              centerOfMass [
+                0 0 0
+              ]
+              inertiaMatrix [
+                0.09048167 0.09048167 0.09048167
+                0 0 0
+              ]
+            }
+          }
+        }
+      ]
+      name "robile_6_link"
+      physics Physics {
+        density -1
+        mass 4.554
+        centerOfMass [
+          5e-05 9e-05 0.12048
+        ]
+        inertiaMatrix [
+          0.0512 0.051012 0.062741
+          6.2e-06 2.24e-05 2.7e-05
+        ]
+      }
+    }
+    Group {
+      children [
+        Lidar {
+          translation 0.36 4.50326e-07 0.13
+          rotation 0 0.7071067811865475 0.7071067811865475 -5.30718e-06
+          fieldOfView 3.14
+          numberOfLayers 1
+          maxRange 12
+        }
+      ]
+    }
+  ]
+  name "FourWheelConfig"
+  model "FourWheelConfig"
+  boundingObject Pose {
+    translation 0 0 0.1
+    children [
+      Box {
+        size 0.8 0.5 0.1
+      }
+    ]
+  }
+  physics Physics {
+  }
+  controller "my_controller2"
+}
+FifaSoccerBall {
+  translation 0.6798447659671719 -0.5094689329437614 0.11216253600000003
+  rotation -0.14272099122973053 0.7034437920732378 -0.6962740480988981 2.810865753891047
+}
+Cabinet {
+  hidden position_6_0 3.203065198444135e-06
+  hidden translation_7 -6.37409974489293e-07 -1.0207945599916002e-12 0
+  hidden rotation_7 0 0 1 3.2030218428787432e-06
+  hidden position_10_0 -2.7230873715922144e-06
+  hidden translation_11 -4.6061022890425375e-07 6.271649866107509e-13 0
+  hidden rotation_11 0 0 -1 2.7231235054762924e-06
+  translation 0.09 5.9 0
+  rotation 0 1 0 0
+}
+Apple {
+  hidden linearVelocity_0 0.03905802634836244 0.08271504370640355 1.8560698659929674e-16
+  hidden angularVelocity_0 -1.654300874128071 0.7811605269672488 1.697110258202131
+  translation 1.4150875372025875 -2.4520885684998817 0.04988227999999999
+  rotation -0.9174503083060643 -0.24408235946079093 0.3141794608009264 2.5883774266629582
+}
+WoodenChair {
+  translation 1.35 1 0
+  rotation 0 0 0.9999999999999999 2.746801533890032
+}
