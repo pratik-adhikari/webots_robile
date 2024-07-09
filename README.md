@@ -21,9 +21,9 @@ In controller folder, the python based control codes are used for demo, and are 
 To run the multi-robot simulation in Webots, follow these steps:
 
 Navigate to the worlds directory:
-'''   
+```
 
 cd worlds
 
 webots multi_robot2.wbt
-'''
+```
